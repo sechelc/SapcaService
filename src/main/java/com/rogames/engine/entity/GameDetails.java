@@ -1,4 +1,6 @@
-package com.rogames.engine.model;
+package com.rogames.engine.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,6 +14,8 @@ import java.util.List;
 public class GameDetails {
     private Long id;
     private List<Team> teams;
+    @JsonIgnore
+    private List<Round> rounds;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

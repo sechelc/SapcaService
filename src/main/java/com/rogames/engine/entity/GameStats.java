@@ -1,4 +1,4 @@
-package com.rogames.engine.model;
+package com.rogames.engine.entity;
 
 /**
  * Created by sechelc on 10.04.2016.

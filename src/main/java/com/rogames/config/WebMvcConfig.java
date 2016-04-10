@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.validation.Validator;
@@ -68,11 +69,8 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
     }
 
     @Bean
-    public ThymeleafViewResolver viewResolver() {
-        ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
-        thymeleafViewResolver.setTemplateEngine(templateEngine());
-        thymeleafViewResolver.setCharacterEncoding("UTF-8");
-        return thymeleafViewResolver;
+    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter(){
+        return new MappingJackson2HttpMessageConverter();
     }
 
     @Override

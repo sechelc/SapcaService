@@ -1,4 +1,6 @@
-package com.rogames.engine.model;
+package com.rogames.engine.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -20,6 +22,7 @@ public class Player {
 
     @ManyToOne
     @JoinColumn(name="TEAM_ID")
+    @JsonIgnore
     private Team team;
 
     public Long getId() {

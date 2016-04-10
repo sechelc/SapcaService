@@ -1,4 +1,6 @@
-package com.rogames.engine.model;
+package com.rogames.engine.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,11 +21,23 @@ public class Team {
 
     @ManyToOne
     @JoinColumn(name="GAME_ID")
+    @JsonIgnore
     private GameDetails gameDetails;
 
     @Column
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     private List<Player> players;
+
+    @Column
+    private long points;
+
+    public Long getPoints() {
+        return points;
+    }
+
+    public void setPoints(Long points) {
+        this.points = points;
+    }
 
     public Long getId() {
         return id;
