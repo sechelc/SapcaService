@@ -44,4 +44,11 @@ public class GameRepository {
     public Team findTeam(Long aLong) {
         return entityManager.find(Team.class, aLong);
     }
+
+    public long addPoints(Long teamId, int points) {
+        Team team = findTeam(teamId);
+        team.addPoints(points);
+        entityManager.persist(team);
+        return team.getPoints();
+    }
 }

@@ -25,11 +25,10 @@ public class Team {
     private GameDetails gameDetails;
 
     @Column
-    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
-    private List<Player> players;
+    private long points;
 
     @Column
-    private long points;
+    private String color;
 
     public Long getPoints() {
         return points;
@@ -55,11 +54,19 @@ public class Team {
         this.gameDetails = gameDetails;
     }
 
-    public List<Player> getPlayers() {
-        return players;
+    public void setPoints(long points) {
+        this.points = points;
     }
 
-    public void setPlayers(List<Player> players) {
-        this.players = players;
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void addPoints(int points) {
+        this.points = this.points + points;
     }
 }
