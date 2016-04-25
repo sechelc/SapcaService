@@ -13,9 +13,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-/**
- * Created by sechelc on 10.04.2016.
- */
 @Component
 public class GameEngineService {
 

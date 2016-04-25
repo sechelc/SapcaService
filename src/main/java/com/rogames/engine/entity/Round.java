@@ -2,9 +2,6 @@ package com.rogames.engine.entity;
 
 import javax.persistence.*;
 
-/**
- * Created by sechelc on 10.04.2016.
- */
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "round")

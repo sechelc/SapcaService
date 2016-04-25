@@ -13,9 +13,6 @@ import javax.persistence.Query;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Created by sechelc on 10.04.2016.
- */
 @Repository
 @Transactional
 public class GameRepository {

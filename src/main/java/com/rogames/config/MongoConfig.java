@@ -20,7 +20,7 @@ class MongoConfig {
 
     @Bean
     public MongoDbFactory mongoDbFactory() throws UnknownHostException {
-        return new SimpleMongoDbFactory(new Mongo(), "spaca-game-engine");
+        return new SimpleMongoDbFactory(new Mongo(), "sapca-game-engine");
     }
 
     @Bean

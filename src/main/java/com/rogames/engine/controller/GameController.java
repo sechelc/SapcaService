@@ -19,9 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * Created by sechelc on 10.04.2016.
- */
 @Controller("session")
 public class GameController {
 
@@ -67,7 +64,7 @@ public class GameController {
         return gameEngineService.getNextRound(gameId);
     }
 
-    @RequestMapping(value = "/addpoints/{teamId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/addPoints/{teamId}",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Boolean getNextRound( @PathVariable long teamId, @RequestParam int points){
         return gameEngineService.addPoints(teamId, points);
