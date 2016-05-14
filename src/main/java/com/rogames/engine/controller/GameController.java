@@ -35,10 +35,10 @@ public class GameController {
     @Autowired
     private GameEngineService gameEngineService;
 
-    @RequestMapping("/")
+    @RequestMapping("/webping")
     @ResponseBody
-    public String homePage(){
-        return "Welcome to game home page!";
+    public String webping(){
+        return "OK";
     }
 
     @RequestMapping("/startGame")
