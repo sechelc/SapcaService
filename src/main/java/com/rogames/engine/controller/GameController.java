@@ -35,6 +35,12 @@ public class GameController {
     @Autowired
     private GameEngineService gameEngineService;
 
+    @RequestMapping("/")
+    @ResponseBody
+    public String homePage(){
+        return "Welcome to game home page!";
+    }
+
     @RequestMapping("/startGame")
     @ResponseBody
     public String createGame(@RequestParam Integer noOfTeams){
