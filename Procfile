@@ -1,1 +1,1 @@
-web: java -Xms256m -Xms512m -jar target/dependency/jetty-runner.jar target/*.war
+web: java -Xms256m -Xmx512m -jar target/dependency/jetty-runner.jar target/*.war
