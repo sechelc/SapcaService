@@ -54,6 +54,8 @@ public class GameEngineService {
 
     public Round getNextRound(String gameId) {
         Round pop = roundByGame.get(gameId).pop();
+        //rotating for fun and tests
+        roundByGame.put(gameId, roundByGame.get(gameId));
         Integer integer = nextTeamId.get(gameId);
         pop.setTeam(gameRepository.findTeam(teamIds.get(gameId).get(integer % teamIds.get(gameId).size())));
         nextTeamId.put(gameId, ++integer);
