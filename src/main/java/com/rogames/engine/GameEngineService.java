@@ -29,7 +29,16 @@ public class GameEngineService {
     public void init() {
         gameRepository.createRound(new Round("nu da cioara de pe gard pe lalala", "3", "anything"));
         gameRepository.createRound(new Round("alta intrebare", "5", "deseneaza, mimeaza, vorbeste"));
-        gameRepository.createRound(new Round("masa", "1", "mima"));
+        gameRepository.createRound(new Round("intrebare", "6", "mima"));
+        gameRepository.createRound(new Round("masa", "4", "mima"));
+        gameRepository.createRound(new Round("scaun", "4", "mima"));
+        gameRepository.createRound(new Round("shalala", "5", "mima"));
+        gameRepository.createRound(new Round("asdada", "3", "mima"));
+        gameRepository.createRound(new Round("qweqew", "6", "mima"));
+        gameRepository.createRound(new Round("inca o intrebare", "6", "mima"));
+        gameRepository.createRound(new Round("iendynqkjn", "2", "mima"));
+        gameRepository.createRound(new Round("cdcdcdcd", "4", "mima"));
+
 
         List<Round> roundList = gameRepository.retrieveAllRounds();
         long seed = System.nanoTime();
