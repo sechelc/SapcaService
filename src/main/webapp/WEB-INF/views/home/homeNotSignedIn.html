@@ -12,16 +12,15 @@
 <div th:replace="fragments/header :: header">Header</div>
 <div class="container">
     <div class="text-center">
-        <h1>Test</h1>
+        <h1>Admin Console</h1>
         <p class="lead">
-            Welcome to the Spring MVC Quickstart application!
-            Get started quickly by signing up.
+           In order to be able to add content, please log in.
         </p>
         <p>
-            <a href="/signup" th:href="@{/signup}" class="btn btn-success btn-lg">Sign up</a>
+            <a href="/signin" th:href="@{/signin}" class="btn btn-success btn-lg">Sign in</a>
         </p>
     </div>
-    <div th:replace="fragments/footer :: footer">&copy; 2013 The Static Templates</div>
+    <div th:replace="fragments/footer :: footer">&copy; 2016 Sapca inc</div>
 </div>
 </body>
 </html>

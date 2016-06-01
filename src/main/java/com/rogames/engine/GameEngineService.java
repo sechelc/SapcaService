@@ -1,9 +1,10 @@
 package com.rogames.engine;
 
 import com.rogames.engine.entity.GameDetails;
-import com.rogames.engine.entity.GameStats;
 import com.rogames.engine.entity.Round;
 import com.rogames.engine.entity.Team;
+import com.rogames.engine.model.Collors;
+import com.rogames.engine.model.RoundActions;
 import com.rogames.engine.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,22 +25,15 @@ public class GameEngineService {
     private Map<String, Stack<Round>> roundByGame = new ConcurrentHashMap<>();
     private Map<String, List<Long>> teamIds = new ConcurrentHashMap<>();
     private Map<String, Integer> nextTeamId = new ConcurrentHashMap<>();
+    private List<Collors> collors = new ArrayList<>();
 
     @PostConstruct
     public void init() {
-        gameRepository.createRound(new Round("nu da cioara de pe gard pe lalala", "3", "anything"));
-        gameRepository.createRound(new Round("alta intrebare", "5", "deseneaza, mimeaza, vorbeste"));
-        gameRepository.createRound(new Round("intrebare", "6", "mima"));
-        gameRepository.createRound(new Round("masa", "4", "mima"));
-        gameRepository.createRound(new Round("scaun", "4", "mima"));
-        gameRepository.createRound(new Round("shalala", "5", "mima"));
-        gameRepository.createRound(new Round("asdada", "3", "mima"));
-        gameRepository.createRound(new Round("qweqew", "6", "mima"));
-        gameRepository.createRound(new Round("inca o intrebare", "6", "mima"));
-        gameRepository.createRound(new Round("iendynqkjn", "2", "mima"));
-        gameRepository.createRound(new Round("cdcdcdcd", "4", "mima"));
+        collors = Arrays.asList(Collors.values());
+        updateRoundList();
+    }
 
-
+    void updateRoundList() {
         List<Round> roundList = gameRepository.retrieveAllRounds();
         long seed = System.nanoTime();
         Collections.shuffle(roundList, new Random(seed));
@@ -75,5 +69,27 @@ public class GameEngineService {
     public Boolean addPoints(Long teamId, int points) {
         long teamPoints =  gameRepository.addPoints(teamId, points);
         return teamPoints >= WINNING_POINTS;
+    }
+
+    public String startGame(Integer noOfTeams) {
+        GameDetails gameDetails = new GameDetails();
+        gameDetails.setTeams(createTeams(gameDetails, noOfTeams));
+        return startGame(gameDetails);
+    }
+
+    private List<Team> createTeams(GameDetails gameDetails, Integer noOfTeams) {
+        List<Team> teams = new ArrayList<>(noOfTeams);
+        for(int i =0; i< noOfTeams; i++){
+            teams.add(createTeam(gameDetails,i));
+        }
+        return teams;
+    }
+
+
+    private Team createTeam(GameDetails gameDetails, int i){
+        Team team = new Team();
+        team.setGameDetails(gameDetails);
+        team.setColor(collors.get(i).name().toLowerCase());
+        return team;
     }
 }

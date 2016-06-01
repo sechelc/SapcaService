@@ -22,40 +22,13 @@ import java.util.Stack;
 @Controller("session")
 public class GameController {
 
-    private List<String> collors = new ArrayList<>();
-
-    @PostConstruct
-    public void init(){
-        collors.add("blue");
-        collors.add("green");
-        collors.add("red");
-        collors.add("yellow");
-    }
-
     @Autowired
     private GameEngineService gameEngineService;
-
-    @RequestMapping("/webping")
-    @ResponseBody
-    public String webping(){
-        return "OK";
-    }
 
     @RequestMapping("/startGame")
     @ResponseBody
     public String createGame(@RequestParam Integer noOfTeams){
-
-        GameDetails gameDetails = new GameDetails();
-        gameDetails.setTeams(createTeams(gameDetails, noOfTeams));
-        return gameEngineService.startGame(gameDetails);
-    }
-
-    private List<Team> createTeams(GameDetails gameDetails, Integer noOfTeams) {
-        List<Team> teams = new ArrayList<>(noOfTeams);
-        for(int i =0; i< noOfTeams; i++){
-            teams.add(createTeam(gameDetails,i));
-        }
-        return teams;
+        return gameEngineService.startGame(noOfTeams);
     }
 
     @RequestMapping(value = "/game/{gameId}",produces = MediaType.APPLICATION_JSON_VALUE)
@@ -76,10 +49,4 @@ public class GameController {
         return gameEngineService.addPoints(teamId, points);
     }
 
-    private Team createTeam(GameDetails gameDetails, int i){
-        Team team = new Team();
-        team.setGameDetails(gameDetails);
-        team.setColor(collors.get(i));
-        return team;
-    }
 }
