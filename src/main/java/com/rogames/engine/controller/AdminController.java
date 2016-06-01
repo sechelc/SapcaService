@@ -10,9 +10,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
-/**
- * Created by sechelc on 01.06.2016.
- */
 @Controller
 public class AdminController {
 

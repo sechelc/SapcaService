@@ -6,9 +6,6 @@ import com.rogames.engine.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by sechelc on 01.06.2016.
- */
 @Component
 public class GameAdminService {
     @Autowired
