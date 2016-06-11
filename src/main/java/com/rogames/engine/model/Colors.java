@@ -1,6 +1,6 @@
 package com.rogames.engine.model;
 
-public enum Collors {
+public enum Colors {
     RED,
     BLUE,
     GREEN,

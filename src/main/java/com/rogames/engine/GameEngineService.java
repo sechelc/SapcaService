@@ -3,8 +3,7 @@ package com.rogames.engine;
 import com.rogames.engine.entity.GameDetails;
 import com.rogames.engine.entity.Round;
 import com.rogames.engine.entity.Team;
-import com.rogames.engine.model.Collors;
-import com.rogames.engine.model.RoundActions;
+import com.rogames.engine.model.Colors;
 import com.rogames.engine.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,11 +24,11 @@ public class GameEngineService {
     private Map<String, Stack<Round>> roundByGame = new ConcurrentHashMap<>();
     private Map<String, List<Long>> teamIds = new ConcurrentHashMap<>();
     private Map<String, Integer> nextTeamId = new ConcurrentHashMap<>();
-    private List<Collors> collors = new ArrayList<>();
+    private List<Colors> collors = new ArrayList<>();
 
     @PostConstruct
     public void init() {
-        collors = Arrays.asList(Collors.values());
+        collors = Arrays.asList(Colors.values());
         updateRoundList();
     }
 
