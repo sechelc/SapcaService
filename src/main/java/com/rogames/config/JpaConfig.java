@@ -36,6 +36,7 @@ class JpaConfig implements TransactionManagementConfigurer {
     private String dialect;
     @Value("${hibernate.hbm2ddl.auto}")
     private String hbm2ddlAuto;
+    
 
     @Bean
     public DataSource configureDataSource() {
