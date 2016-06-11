@@ -26,11 +26,11 @@ class JpaConfig implements TransactionManagementConfigurer {
 
     @Value("${dataSource.driverClassName}")
     private String driver;
-    @Value("${dataSource.url}")
+    @Value("#{systemEnvironment['JDBC_DATABASE_URL']}")
     private String url;
-    @Value("${dataSource.username}")
+    @Value("#{systemEnvironment['JDBC_DATABASE_USERNAME']}")
     private String username;
-    @Value("${dataSource.password}")
+    @Value("#{systemEnvironment['JDBC_DATABASE_PASSWORD']}")
     private String password;
     @Value("${hibernate.dialect}")
     private String dialect;
